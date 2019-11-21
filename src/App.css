@@ -1,22 +1,60 @@
 .App {
-  text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #dcf2ea;
 }
 
-.App-logo {
-  height: 40vmin;
+.calculator {
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.outputBlock {
+    float: left;
+    display: grid;
+    grid-template-columns: 240px;
+    grid-template-rows: 40px 60px;
 }
 
-.App-link {
-  color: #09d3ac;
+.fullOutput {
+    background-color: aliceblue;
+    border-radius: 10px;
+    text-align: right;
+    font-size: 20px;
+    color: gray;
+    margin: 4px;
+    padding: 5px;
+}
+
+.numOutput {
+    background-color: aliceblue;
+    border-radius: 10px;
+    text-align: right;
+    font-size: 40px;
+    margin: 4px;
+    padding: 5px;
+}
+
+.deleteBlock {
+    display: grid;
+    grid-template-columns: 80px;
+    grid-template-rows: 40px 60px;
+}
+
+.inputBlock {
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px;
+    grid-template-rows: 60px 60px 60px 60px;
+    margin-top: 10px;
+}
+
+.button {
+    margin: 4px;
+    border: 1px solid aliceblue;
+    background-color: #b7ecf2;
+    border-radius: 5px;
+    font-size: 20px
 }

@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+let App = ({onNumButtonClick, onOpButtonClick, count, clear, clearEvery, fullOutput, numOutput}) => {
+    return (
+        <div className='App'>
+            <div className={'calculator'}>
+                <div>
+                    <div className={'outputBlock'}>
+                        <div className={'fullOutput'}>
+                            {fullOutput}
+                        </div>
+                        <div className={'numOutput'}>
+                            {numOutput}
+                        </div>
+                    </div>
+                    <div className={'deleteBlock'}>
+                        <button className={'button'} onClick={clearEvery}>CE</button>
+                        <button className={'button'} onClick={clear}>C</button>
+                    </div>
+                </div>
+                <div className={'inputBlock'}>
+                    <button value={1} className={'button'} onClick={onNumButtonClick}>1</button>
+                    <button value={2} className={'button'} onClick={onNumButtonClick}>2</button>
+                    <button value={3} className={'button'} onClick={onNumButtonClick}>3</button>
+                    <button value={'+'} className={'button'} onClick={onOpButtonClick}>+</button>
+                    <button value={4} className={'button'} onClick={onNumButtonClick}>4</button>
+                    <button value={5} className={'button'} onClick={onNumButtonClick}>5</button>
+                    <button value={6} className={'button'} onClick={onNumButtonClick}>6</button>
+                    <button value={'-'} className={'button'} onClick={onOpButtonClick}>-</button>
+                    <button value={7} className={'button'} onClick={onNumButtonClick}>7</button>
+                    <button value={8} className={'button'} onClick={onNumButtonClick}>8</button>
+                    <button value={9} className={'button'} onClick={onNumButtonClick}>9</button>
+                    <button value={'*'} className={'button'} onClick={onOpButtonClick}>*</button>
+                    <button value={0} className={'button'} onClick={onNumButtonClick}>0</button>
+                    <button value={'.'} className={'button'} onClick={onNumButtonClick}>.</button>
+                    <button value={'='} className={'button'} onClick={count}>=</button>
+                    <button value={'/'} className={'button'} onClick={onOpButtonClick}>/</button>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default App;
