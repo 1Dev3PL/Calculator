@@ -19,7 +19,12 @@ class AppContainer extends React.Component {
     };
 
     count = () => {
-        this.setState({fullOutput: '', numOutput: eval(this.state.fullOutput).toString()});
+        let result = eval(this.state.fullOutput).toString();
+        if (result === 'Infinity' || result === '-Infinity' || result === 'NaN') {
+            this.setState({fullOutput: '', numOutput: 'Error'})
+        } else {
+            this.setState({fullOutput: result, numOutput: result});
+        }
     };
 
     clear = () => {
