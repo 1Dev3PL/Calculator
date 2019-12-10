@@ -1,17 +1,14 @@
 import React from 'react';
 import './App.css';
 
-let App = ({onNumButtonClick, onOpButtonClick, count, clear, clearEvery, fullOutput, numOutput}) => {
+let App = ({onNumButtonClick, onOpButtonClick, count, clear, clearEvery, output, isDisabled}) => {
     return (
         <div className='App'>
             <div className={'calculator'}>
                 <div>
                     <div className={'outputBlock'}>
-                        <div className={'fullOutput'}>
-                            {fullOutput}
-                        </div>
-                        <div className={'numOutput'}>
-                            {numOutput}
+                        <div className={'output'}>
+                            {output}
                         </div>
                     </div>
                     <div className={'deleteBlock'}>
@@ -34,7 +31,7 @@ let App = ({onNumButtonClick, onOpButtonClick, count, clear, clearEvery, fullOut
                     <button value={'*'} className={'button'} onClick={onOpButtonClick}>*</button>
                     <button value={0} className={'button'} onClick={onNumButtonClick}>0</button>
                     <button value={'.'} className={'button'} onClick={onNumButtonClick}>.</button>
-                    <button value={'='} className={'button'} onClick={count}>=</button>
+                    <button value={'='} className={'button'} onClick={count} disabled={isDisabled}>=</button>
                     <button value={'/'} className={'button'} onClick={onOpButtonClick}>/</button>
                 </div>
             </div>

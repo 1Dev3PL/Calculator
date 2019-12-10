@@ -16,20 +16,10 @@
     float: left;
     display: grid;
     grid-template-columns: 240px;
-    grid-template-rows: 40px 60px;
+    grid-template-rows: 100px;
 }
 
-.fullOutput {
-    background-color: aliceblue;
-    border-radius: 10px;
-    text-align: right;
-    font-size: 20px;
-    color: gray;
-    margin: 4px;
-    padding: 5px;
-}
-
-.numOutput {
+.output {
     background-color: aliceblue;
     border-radius: 10px;
     text-align: right;

@@ -2,49 +2,56 @@ import React from 'react';
 import App from "./App";
 
 class AppContainer extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            fullOutput: '',
-            numOutput: ''
+            output: ''
         };
     }
 
     onNumButtonClick = (e) => {
-        this.setState({fullOutput: this.state.fullOutput + e.currentTarget.value, numOutput: this.state.numOutput + e.currentTarget.value})
+        this.setState({
+            output: this.state.output + e.currentTarget.value
+        })
     };
 
     onOpButtonClick = (e) => {
-        this.setState({fullOutput: this.state.fullOutput + e.currentTarget.value, numOutput: ''})
+        this.setState({output: this.state.output + e.currentTarget.value})
     };
 
     count = () => {
-        let result = eval(this.state.fullOutput).toString();
-        if (result === 'Infinity' || result === '-Infinity' || result === 'NaN') {
-            this.setState({fullOutput: '', numOutput: 'Error'})
-        } else {
-            this.setState({fullOutput: result, numOutput: result});
+        try {
+            let result = eval(this.state.output.toString());
+
+            if (result === Infinity || result === -Infinity || isNaN(result)) {
+                this.setState({output: 'Error'})
+            } else {
+                this.setState({output: result.toString()})
+            }
+        } catch {
+            this.setState({output: 'Error'})
         }
     };
 
     clear = () => {
-        this.setState({fullOutput: this.state.fullOutput.slice(0, - 1),
-            numOutput: this.state.numOutput.slice(0, -1)})
+        this.setState({
+            output: this.state.output.slice(0, -1),
+        });
     };
 
     clearEvery = () => {
-        this.setState({fullOutput: '', numOutput: ''})
+        this.setState({output: ''})
     };
 
     render() {
-        return(
+        return (
             <App onNumButtonClick={this.onNumButtonClick}
                  onOpButtonClick={this.onOpButtonClick}
                  count={this.count}
                  clear={this.clear}
                  clearEvery={this.clearEvery}
-                 fullOutput={this.state.fullOutput}
-                 numOutput={this.state.numOutput}/>
+                 output={this.state.output}
+                 isDisabled={this.state.isDisabled}/>
         )
     }
 }
